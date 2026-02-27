@@ -5,44 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Death Note | New World</title>
 
-<!-- L tarzı gotik font -->
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
 body {
     margin: 0;
-    background: radial-gradient(circle at center, #1a0000 0%, #000000 70%);
+    background: black;
     color: white;
     font-family: 'Cinzel', serif;
-    text-align: center;
+    overflow-x: hidden;
 }
 
-/* Başlık */
+/* Arka plan duman efekti */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 60%);
+    animation: smoke 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes smoke {
+    from { transform: translate(-25%, -25%) rotate(0deg); }
+    to { transform: translate(-25%, -25%) rotate(360deg); }
+}
+
 header {
     font-family: 'UnifrakturCook', cursive;
-    font-size: 55px;
-    padding: 30px;
-    color: white;
-    text-shadow: 0 0 15px red, 0 0 30px darkred;
-    letter-spacing: 4px;
-    animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px red; }
-    to { text-shadow: 0 0 25px crimson; }
+    font-size: 65px;
+    text-align: center;
+    padding: 40px 20px;
+    text-shadow: 0 0 20px red;
+    animation: fadeIn 2s ease-in-out;
 }
 
 nav {
-    background-color: #0d0d0d;
+    text-align: center;
     padding: 15px;
+    background: #0a0a0a;
 }
 
 nav a {
     color: crimson;
-    text-decoration: none;
     margin: 20px;
+    text-decoration: none;
     font-size: 18px;
     transition: 0.3s;
 }
@@ -53,64 +61,86 @@ nav a:hover {
 }
 
 section {
-    padding: 50px 20px;
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeUp 1.5s ease;
 }
 
 .card {
-    background: rgba(20, 0, 0, 0.8);
+    background: rgba(30,0,0,0.7);
+    backdrop-filter: blur(10px);
     border: 1px solid crimson;
-    border-radius: 15px;
-    padding: 25px;
-    width: 60%;
-    margin: 25px auto;
+    border-radius: 20px;
+    padding: 30px;
+    width: 70%;
+    margin: 30px auto;
     transition: 0.4s;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px crimson;
+    transform: scale(1.04);
+    box-shadow: 0 0 30px crimson;
 }
 
 h2 {
     font-family: 'UnifrakturCook', cursive;
-    font-size: 35px;
-    color: white;
+    font-size: 40px;
     text-shadow: 0 0 10px red;
 }
 
 button {
-    background-color: black;
+    background: black;
     color: crimson;
     border: 1px solid crimson;
-    padding: 10px 25px;
+    padding: 12px 30px;
     margin: 10px;
     cursor: pointer;
-    font-family: 'Cinzel', serif;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: crimson;
+    background: crimson;
     color: black;
-    box-shadow: 0 0 15px red;
+    box-shadow: 0 0 20px red;
+}
+
+/* Fade animasyonları */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Düşen elma */
+.apple {
+    position: fixed;
+    top: -50px;
+    font-size: 25px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
 }
 
 footer {
-    margin-top: 50px;
+    text-align: center;
     padding: 20px;
     background: black;
     color: gray;
-    font-size: 14px;
 }
-
 </style>
 </head>
 
 <body>
 
-<header>
-    DEATH NOTE
-</header>
+<header>DEATH NOTE</header>
 
 <nav>
     <a href="#about">Hakkında</a>
@@ -119,30 +149,28 @@ footer {
 </nav>
 
 <section id="about">
-    <h2>Hakkında</h2>
+    <h2>Yeni Dünya</h2>
     <div class="card">
-        <p>Bir ölüm defteri bulan Light Yagami'nin yeni bir dünya yaratma planını anlatan psikolojik gerilim serisi.</p>
+        <p>Bir ölüm defteri bulan Light Yagami'nin adalet anlayışıyla dünyayı değiştirme hikayesi.</p>
     </div>
 </section>
 
 <section id="characters">
     <h2>Karakterler</h2>
-
     <div class="card">
         <h3>Light Yagami</h3>
-        <p>Kira olarak bilinir. Suçluları yok ederek yeni dünya düzeni kurmak ister.</p>
+        <p>Kira olarak bilinir. Suçluları ortadan kaldırarak kusursuz bir dünya kurmak ister.</p>
     </div>
 
     <div class="card">
         <h3>L</h3>
-        <p>Dünyanın en zeki dedektiflerinden biri. Kira'nın peşindedir.</p>
+        <p>Dünyanın en zeki dedektiflerinden biri. Kira'yı yakalamaya kararlıdır.</p>
     </div>
 
     <div class="card">
         <h3>Ryuk</h3>
-        <p>Ölüm Defteri'ni dünyaya bırakan shinigami.</p>
+        <p>Ölüm Defteri'ni insan dünyasına bırakan shinigami.</p>
     </div>
-
 </section>
 
 <section id="vote">
@@ -155,13 +183,23 @@ footer {
 </section>
 
 <footer>
-    © 2026 Kira'nın Yeni Dünyası
+    © 2026 New World Order
 </footer>
 
 <script>
 function vote(choice) {
     document.getElementById("result").innerHTML =
     "Seçimin: " + choice + " ⚖️";
+}
+
+/* Rastgele düşen elmalar */
+for(let i=0;i<15;i++){
+    let apple = document.createElement("div");
+    apple.className = "apple";
+    apple.innerHTML = "🍎";
+    apple.style.left = Math.random()*100 + "vw";
+    apple.style.animationDuration = (3+Math.random()*5) + "s";
+    document.body.appendChild(apple);
 }
 </script>
 
