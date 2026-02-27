@@ -3,205 +3,576 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Death Note | Fan Site</title>
+
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    background:#0b0b0b;
+    color:white;
+    font-family:'Cinzel',serif;
+}
+
+header{
+    text-align:center;
+    font-family:'UnifrakturCook',cursive;
+    font-size:60px;
+    padding:40px;
+    color:white;
+    text-shadow:0 0 20px red;
+}
+
+section{
+    padding:50px 20px;
+    text-align:center;
+}
+
+h2{
+    font-family:'UnifrakturCook',cursive;
+    font-size:35px;
+    color:crimson;
+}
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+.card{
+    background:#1a0000;
+    width:300px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(255,0,0,0.3);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px crimson;
+}
+
+.card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+    text-align:left;
+}
+
+button{
+    background:black;
+    color:crimson;
+    border:1px solid crimson;
+    padding:10px 25px;
+    margin:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:crimson;
+    color:black;
+}
+
+.vote-box{
+    background:#1a0000;
+    padding:30px;
+    border-radius:15px;
+    width:400px;
+    margin:auto;
+}
+
+.progress{
+    height:20px;
+    background:#333;
+    border-radius:10px;
+    margin:10px 0;
+    overflow:hidden;
+}
+
+.bar{
+    height:100%;
+    background:crimson;
+    width:0%;
+}
+</style>
+</head>
+<body>
+
+<header>DEATH NOTE</header>
+
+<section>
+<h2>Karakterler</h2>
+
+<div class="container">
+
+<div class="card">
+<img src="light.jpg">
+<div class="card-content">
+<h3>Light Yagami</h3>
+<p>Üstün zekâlı bir lise öğrencisi olan Light, Ölüm Defteri'ni bulduktan sonra dünyayı suçlulardan arındırmaya karar verir. Kendisini yeni dünyanın tanrısı olarak görür ve Kira kimliğiyle küresel bir korku düzeni yaratır. Zekâ savaşında en büyük rakibi L’dir.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="l.jpg">
+<div class="card-content">
+<h3>L</h3>
+<p>Dünyanın en gizemli ve en başarılı dedektifi. Gerçek kimliğini saklar. Analitik zekâsı ve psikolojik hamleleriyle Kira’nın kimliğini ortaya çıkarmaya çalışır. Light ile arasındaki mücadele tarihin en büyük zihin savaşlarından biridir.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="ryuk.jpg">
+<div class="card-content">
+<h3>Ryuk</h3>
+<p>Shinigami dünyasından sıkıldığı için Ölüm Defteri’ni insan dünyasına bırakır. Olayları eğlenmek için izler. Tarafsızdır, sadece elma yemeyi sever ve kaosu gözlemler.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>L mi Light mı?</h2>
+
+<div class="vote-box">
+<button onclick="vote('L')">L</button>
+<button onclick="vote('Light')">Light</button>
+
+<p>L Oy: <span id="lCount">0</span></p>
+<div class="progress"><div id="lBar" class="bar"></div></div>
+
+<p>Light Oy: <span id="lightCount">0</span></p>
+<div class="progress"><div id="lightBar" class="bar"></div></div>
+
+</div>
+</section>
+
+<script>
+let lVotes = localStorage.getItem("lVotes") || 0;
+let lightVotes = localStorage.getItem("lightVotes") || 0;
+
+function updateUI(){
+    let total = Number(lVotes) + Number(lightVotes);
+    document.getElementById("lCount").innerText = lVotes;
+    document.getElementById("lightCount").innerText = lightVotes;
+
+    if(total > 0){
+        document.getElementById("lBar").style.width = (lVotes/total*100) + "%";
+        document.getElementById("lightBar").style.width = (lightVotes/total*100) + "%";
+    }
+}
+
+function vote(choice){
+    if(choice==="L"){ lVotes++; localStorage.setItem("lVotes", lVotes); }
+    else{ lightVotes++; localStorage.setItem("lightVotes", lightVotes); }
+    updateUI();
+}
+
+updateUI();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Death Note | New World</title>
 
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    background: black;
-    color: white;
-    font-family: 'Cinzel', serif;
-    overflow-x: hidden;
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:'Cinzel',serif;
+    overflow-x:hidden;
 }
 
-/* Arka plan duman efekti */
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 60%);
-    animation: smoke 20s linear infinite;
-    z-index: -1;
+/* INTRO EKRANI */
+#intro{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+    animation:fadeOut 3s forwards;
+    animation-delay:3s;
 }
 
-@keyframes smoke {
-    from { transform: translate(-25%, -25%) rotate(0deg); }
-    to { transform: translate(-25%, -25%) rotate(360deg); }
+#intro h1{
+    font-family:'UnifrakturCook',cursive;
+    font-size:70px;
+    text-shadow:0 0 25px red;
 }
 
-header {
-    font-family: 'UnifrakturCook', cursive;
-    font-size: 65px;
-    text-align: center;
-    padding: 40px 20px;
-    text-shadow: 0 0 20px red;
-    animation: fadeIn 2s ease-in-out;
+@keyframes fadeOut{
+    to{opacity:0; visibility:hidden;}
 }
 
-nav {
-    text-align: center;
-    padding: 15px;
-    background: #0a0a0a;
+/* HEADER */
+header{
+    text-align:center;
+    font-family:'UnifrakturCook',cursive;
+    font-size:60px;
+    padding:40px;
+    text-shadow:0 0 20px red;
 }
 
-nav a {
-    color: crimson;
-    margin: 20px;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
+/* SECTION ANIMASYON */
+section{
+    padding:80px 20px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
 }
 
-nav a:hover {
-    color: white;
-    text-shadow: 0 0 10px red;
+section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-section {
-    padding: 60px 20px;
-    text-align: center;
-    animation: fadeUp 1.5s ease;
+h2{
+    font-family:'UnifrakturCook',cursive;
+    font-size:40px;
+    color:crimson;
 }
 
-.card {
-    background: rgba(30,0,0,0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid crimson;
-    border-radius: 20px;
-    padding: 30px;
-    width: 70%;
-    margin: 30px auto;
-    transition: 0.4s;
+/* KURALLAR */
+.rules{
+    max-width:800px;
+    margin:auto;
+    text-align:left;
+    background:#140000;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(255,0,0,0.4);
 }
 
-.card:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 30px crimson;
+.rules p{
+    margin-bottom:15px;
 }
 
-h2 {
-    font-family: 'UnifrakturCook', cursive;
-    font-size: 40px;
-    text-shadow: 0 0 10px red;
+/* MÜZİK BUTONU */
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:black;
+    color:crimson;
+    border:1px solid crimson;
+    padding:12px 20px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-button {
-    background: black;
-    color: crimson;
-    border: 1px solid crimson;
-    padding: 12px 30px;
-    margin: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: crimson;
-    color: black;
-    box-shadow: 0 0 20px red;
-}
-
-/* Fade animasyonları */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Düşen elma */
-.apple {
-    position: fixed;
-    top: -50px;
-    font-size: 25px;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(110vh);
-    }
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: black;
-    color: gray;
+.music-btn:hover{
+    background:crimson;
+    color:black;
 }
 </style>
 </head>
-
 <body>
+
+<!-- INTRO -->
+<div id="intro">
+    <h1>DEATH NOTE</h1>
+    <p>Yeni Dünya Başlıyor...</p>
+</div>
 
 <header>DEATH NOTE</header>
 
-<nav>
-    <a href="#about">Hakkında</a>
-    <a href="#characters">Karakterler</a>
-    <a href="#vote">Anket</a>
-</nav>
-
-<section id="about">
-    <h2>Yeni Dünya</h2>
-    <div class="card">
-        <p>Bir ölüm defteri bulan Light Yagami'nin adalet anlayışıyla dünyayı değiştirme hikayesi.</p>
-    </div>
+<section>
+<h2>Hikaye</h2>
+<p>Bir lise öğrencisi olan Light Yagami, ölüm defterini bulduktan sonra dünyayı suçlulardan temizlemeye karar verir. Ancak bu karar, tarihin en büyük zeka savaşını başlatır.</p>
 </section>
 
-<section id="characters">
-    <h2>Karakterler</h2>
-    <div class="card">
-        <h3>Light Yagami</h3>
-        <p>Kira olarak bilinir. Suçluları ortadan kaldırarak kusursuz bir dünya kurmak ister.</p>
-    </div>
-
-    <div class="card">
-        <h3>L</h3>
-        <p>Dünyanın en zeki dedektiflerinden biri. Kira'yı yakalamaya kararlıdır.</p>
-    </div>
-
-    <div class="card">
-        <h3>Ryuk</h3>
-        <p>Ölüm Defteri'ni insan dünyasına bırakan shinigami.</p>
-    </div>
+<section>
+<h2>Death Note Kuralları</h2>
+<div class="rules">
+<p>• Bu deftere adı yazılan kişi ölür.</p>
+<p>• Yazarken yüzünü hayal etmezsen, aynı isimli başka biri ölmez.</p>
+<p>• Ölüm nedeni yazılmazsa kişi kalp krizi geçirir.</p>
+<p>• Ölüm nedeni yazılırsa detaylar 40 saniye içinde belirtilebilir.</p>
+<p>• Defteri kullanan kişi ne cennete ne cehenneme gider.</p>
+</div>
 </section>
 
-<section id="vote">
-    <h2>L mi Light mı?</h2>
-    <div class="card">
-        <button onclick="vote('L')">L</button>
-        <button onclick="vote('Light')">Light</button>
-        <p id="result"></p>
-    </div>
-</section>
+<!-- MÜZİK -->
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<footer>
-    © 2026 New World Order
-</footer>
+<button class="music-btn" onclick="toggleMusic()">Müziği Aç / Kapat</button>
 
 <script>
-function vote(choice) {
-    document.getElementById("result").innerHTML =
-    "Seçimin: " + choice + " ⚖️";
+
+/* Scroll animasyon */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+
+/* Müzik kontrol */
+let music = document.getElementById("bgMusic");
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+    } else {
+        music.pause();
+    }
 }
 
-/* Rastgele düşen elmalar */
-for(let i=0;i<15;i++){
-    let apple = document.createElement("div");
-    apple.className = "apple";
-    apple.innerHTML = "🍎";
-    apple.style.left = Math.random()*100 + "vw";
-    apple.style.animationDuration = (3+Math.random()*5) + "s";
-    document.body.appendChild(apple);
-}
 </script>
 
 </body>
 </html>
+,<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Death Note | New World Order</title>
+
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:'Cinzel',serif;
+    overflow-x:hidden;
+}
+
+/* LOADING */
+#loader{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+}
+
+#loader h1{
+    font-family:'UnifrakturCook',cursive;
+    font-size:60px;
+    text-shadow:0 0 25px red;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{opacity:0.3;}
+    50%{opacity:1;}
+    100%{opacity:0.3;}
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    font-family:'UnifrakturCook',cursive;
+    font-size:55px;
+    padding:30px;
+    text-shadow:0 0 20px red;
+}
+
+/* TOP BAR */
+.topbar{
+    display:flex;
+    justify-content:space-around;
+    background:#111;
+    padding:10px;
+    font-size:14px;
+    color:crimson;
+}
+
+/* SECTIONS */
+section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+h2{
+    font-family:'UnifrakturCook',cursive;
+    color:crimson;
+}
+
+/* YORUM SİSTEMİ */
+.comment-box{
+    max-width:600px;
+    margin:auto;
+}
+
+.comment-box input,
+.comment-box textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    background:#1a0000;
+    border:1px solid crimson;
+    color:white;
+}
+
+.comment{
+    background:#140000;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+}
+
+/* BUTON */
+button{
+    background:black;
+    color:crimson;
+    border:1px solid crimson;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:crimson;
+    color:black;
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+<h1>NEW WORLD LOADING...</h1>
+<p>Kira sistemi başlatılıyor...</p>
+</div>
+
+<header>DEATH NOTE</header>
+
+<div class="topbar">
+<div>Ziyaret Sayısı: <span id="visitCount"></span></div>
+<div>Şu an Online: <span id="onlineCount"></span></div>
+</div>
+
+<section>
+<h2>Yeni Dünya</h2>
+<p>Adalet mi? Korku mu? Karar senin.</p>
+</section>
+
+<section>
+<h2>Yorumlar</h2>
+
+<div class="comment-box">
+<input type="text" id="name" placeholder="İsim">
+<textarea id="commentText" rows="4" placeholder="Yorum yaz..."></textarea>
+<button onclick="addComment()">Gönder</button>
+
+<div id="comments"></div>
+</div>
+
+</section>
+
+<script>
+
+/* LOADER */
+window.addEventListener("load",function(){
+    setTimeout(()=>{
+        document.getElementById("loader").style.display="none";
+    },2000);
+});
+
+/* ZİYARET SAYACI */
+let visits = localStorage.getItem("visits") || 0;
+visits++;
+localStorage.setItem("visits", visits);
+document.getElementById("visitCount").innerText = visits;
+
+/* ONLINE SİMÜLASYON */
+function randomOnline(){
+    return Math.floor(Math.random()*20)+5;
+}
+document.getElementById("onlineCount").innerText = randomOnline();
+
+/* YORUM SİSTEMİ */
+function addComment(){
+    let name = document.getElementById("name").value;
+    let text = document.getElementById("commentText").value;
+
+    if(name && text){
+        let commentDiv = document.createElement("div");
+        commentDiv.className="comment";
+        commentDiv.innerHTML="<b>"+name+"</b><br>"+text;
+        document.getElementById("comments").appendChild(commentDiv);
+
+        document.getElementById("name").value="";
+        document.getElementById("commentText").value="";
+    }
+}
+
+</script>
+
+</body>
+</html>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCiFdUpjhAyaUV_RAq95gcYiRdzp5jR8Uk",
+  authDomain: "dnfp-6e158.firebaseapp.com",
+  databaseURL: "https://dnfp-6e158-default-rtdb.firebaseio.com/
+:
+null",
+  projectId: "dnfp-6e158",
+  storageBucket: "Bdnfp-6e158.firebasestorage.app",
+  messagingSenderId: "1056796002000",
+  appId: "1:1056796002000:web:046fbf8bbf5cb9b0bd80d5"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+/* GLOBAL ZİYARET */
+const visitRef = db.ref("visits");
+visitRef.transaction(current => (current || 0) + 1);
+
+visitRef.on("value", snapshot => {
+    document.getElementById("visitCount").innerText = snapshot.val();
+});
+
+/* GLOBAL ANKET */
+function vote(choice){
+    const voteRef = db.ref("votes/" + choice);
+    voteRef.transaction(current => (current || 0) + 1);
+}
+
+db.ref("votes").on("value", snapshot => {
+    let data = snapshot.val();
+    document.getElementById("lCount").innerText = data?.L || 0;
+    document.getElementById("lightCount").innerText = data?.Light || 0;
+});
+</script>
