@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Death Note Fan Sayfası</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    header {
+        background-color: darkred;
+        padding: 20px;
+        font-size: 35px;
+        letter-spacing: 3px;
+    }
+
+    nav {
+        background-color: #111;
+        padding: 10px;
+    }
+
+    nav a {
+        color: red;
+        margin: 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: white;
+    }
+
+    section {
+        padding: 40px;
+    }
+
+    .card {
+        background-color: #111;
+        margin: 20px auto;
+        padding: 20px;
+        width: 60%;
+        border: 2px solid darkred;
+        border-radius: 10px;
+    }
+
+    footer {
+        background-color: darkred;
+        padding: 10px;
+        margin-top: 40px;
+    }
+
+    button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: white;
+        color: red;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    DEATH NOTE FAN SAYFASI
+</header>
+
+<nav>
+    <a href="#hakkinda">Hakkında</a>
+    <a href="#karakterler">Karakterler</a>
+    <a href="#anket">Anket</a>
+</nav>
+
+<section id="hakkinda">
+    <h2>Death Note Hakkında</h2>
+    <div class="card">
+        <p>Death Note, psikolojik gerilim türünde bir anime ve mangadır.</p>
+        <p>Bir ölüm defteri bulan Light Yagami'nin dünyayı değiştirme planını anlatır.</p>
+    </div>
+</section>
+
+<section id="karakterler">
+    <h2>Karakterler</h2>
+
+    <div class="card">
+        <h3>Light Yagami</h3>
+        <p>Kira olarak bilinen ana karakter. Yeni bir dünya kurmak ister.</p>
+    </div>
+
+    <div class="card">
+        <h3>L</h3>
+        <p>Dünyanın en zeki dedektiflerinden biri. Kira'nın peşindedir.</p>
+    </div>
+
+    <div class="card">
+        <h3>Ryuk</h3>
+        <p>Death Note'u dünyaya bırakan shinigami.</p>
+    </div>
+</section>
+
+<section id="anket">
+    <h2>L mi? Light mı?</h2>
+    <div class="card">
+        <p>Sence kim haklı?</p>
+        <button onclick="vote('L')">L</button>
+        <button onclick="vote('Light')">Light</button>
+        <p id="sonuc"></p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Death Note Fan Page | Kira'nın Dünyası
+</footer>
+
+<script>
+function vote(choice) {
+    document.getElementById("sonuc").innerHTML =
+    "Oyunuzu verdiniz: " + choice;
+}
+</script>
+
+</body>
+</html>
