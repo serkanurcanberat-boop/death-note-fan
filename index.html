@@ -576,3 +576,8 @@ db.ref("votes").on("value", snapshot => {
     document.getElementById("lightCount").innerText = data?.Light || 0;
 });
 </script>
+<audio id="bgMusic" loop>
+  <source src="music/theme.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">Müziği Aç / Kapat</button>
