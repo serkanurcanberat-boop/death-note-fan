@@ -3,101 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Death Note Fan Sayfası</title>
+<title>Death Note | New World</title>
+
+<!-- L tarzı gotik font -->
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: black;
-        color: white;
-        text-align: center;
-    }
 
-    header {
-        background-color: darkred;
-        padding: 20px;
-        font-size: 35px;
-        letter-spacing: 3px;
-    }
+body {
+    margin: 0;
+    background: radial-gradient(circle at center, #1a0000 0%, #000000 70%);
+    color: white;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+}
 
-    nav {
-        background-color: #111;
-        padding: 10px;
-    }
+/* Başlık */
+header {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 55px;
+    padding: 30px;
+    color: white;
+    text-shadow: 0 0 15px red, 0 0 30px darkred;
+    letter-spacing: 4px;
+    animation: glow 2s infinite alternate;
+}
 
-    nav a {
-        color: red;
-        margin: 15px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+@keyframes glow {
+    from { text-shadow: 0 0 10px red; }
+    to { text-shadow: 0 0 25px crimson; }
+}
 
-    nav a:hover {
-        color: white;
-    }
+nav {
+    background-color: #0d0d0d;
+    padding: 15px;
+}
 
-    section {
-        padding: 40px;
-    }
+nav a {
+    color: crimson;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 18px;
+    transition: 0.3s;
+}
 
-    .card {
-        background-color: #111;
-        margin: 20px auto;
-        padding: 20px;
-        width: 60%;
-        border: 2px solid darkred;
-        border-radius: 10px;
-    }
+nav a:hover {
+    color: white;
+    text-shadow: 0 0 10px red;
+}
 
-    footer {
-        background-color: darkred;
-        padding: 10px;
-        margin-top: 40px;
-    }
+section {
+    padding: 50px 20px;
+}
 
-    button {
-        background-color: red;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
+.card {
+    background: rgba(20, 0, 0, 0.8);
+    border: 1px solid crimson;
+    border-radius: 15px;
+    padding: 25px;
+    width: 60%;
+    margin: 25px auto;
+    transition: 0.4s;
+}
 
-    button:hover {
-        background-color: white;
-        color: red;
-    }
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px crimson;
+}
+
+h2 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 35px;
+    color: white;
+    text-shadow: 0 0 10px red;
+}
+
+button {
+    background-color: black;
+    color: crimson;
+    border: 1px solid crimson;
+    padding: 10px 25px;
+    margin: 10px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: crimson;
+    color: black;
+    box-shadow: 0 0 15px red;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: black;
+    color: gray;
+    font-size: 14px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    DEATH NOTE FAN SAYFASI
+    DEATH NOTE
 </header>
 
 <nav>
-    <a href="#hakkinda">Hakkında</a>
-    <a href="#karakterler">Karakterler</a>
-    <a href="#anket">Anket</a>
+    <a href="#about">Hakkında</a>
+    <a href="#characters">Karakterler</a>
+    <a href="#vote">Anket</a>
 </nav>
 
-<section id="hakkinda">
-    <h2>Death Note Hakkında</h2>
+<section id="about">
+    <h2>Hakkında</h2>
     <div class="card">
-        <p>Death Note, psikolojik gerilim türünde bir anime ve mangadır.</p>
-        <p>Bir ölüm defteri bulan Light Yagami'nin dünyayı değiştirme planını anlatır.</p>
+        <p>Bir ölüm defteri bulan Light Yagami'nin yeni bir dünya yaratma planını anlatan psikolojik gerilim serisi.</p>
     </div>
 </section>
 
-<section id="karakterler">
+<section id="characters">
     <h2>Karakterler</h2>
 
     <div class="card">
         <h3>Light Yagami</h3>
-        <p>Kira olarak bilinen ana karakter. Yeni bir dünya kurmak ister.</p>
+        <p>Kira olarak bilinir. Suçluları yok ederek yeni dünya düzeni kurmak ister.</p>
     </div>
 
     <div class="card">
@@ -107,28 +140,28 @@
 
     <div class="card">
         <h3>Ryuk</h3>
-        <p>Death Note'u dünyaya bırakan shinigami.</p>
+        <p>Ölüm Defteri'ni dünyaya bırakan shinigami.</p>
     </div>
+
 </section>
 
-<section id="anket">
-    <h2>L mi? Light mı?</h2>
+<section id="vote">
+    <h2>L mi Light mı?</h2>
     <div class="card">
-        <p>Sence kim haklı?</p>
         <button onclick="vote('L')">L</button>
         <button onclick="vote('Light')">Light</button>
-        <p id="sonuc"></p>
+        <p id="result"></p>
     </div>
 </section>
 
 <footer>
-    © 2026 Death Note Fan Page | Kira'nın Dünyası
+    © 2026 Kira'nın Yeni Dünyası
 </footer>
 
 <script>
 function vote(choice) {
-    document.getElementById("sonuc").innerHTML =
-    "Oyunuzu verdiniz: " + choice;
+    document.getElementById("result").innerHTML =
+    "Seçimin: " + choice + " ⚖️";
 }
 </script>
 
